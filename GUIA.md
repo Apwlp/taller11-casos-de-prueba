@@ -27,3 +27,5 @@ En la clase anterior elaboraron una tabla de casos de prueba para el sistema de 
     - `AsientoTest.java`
     - `SalaCineTest.java`
     - `ReservaServiceTest.java`
+## Tablas a llenar
+Clase | ID | Metodo | Datos de entrada | Salida esperada

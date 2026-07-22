@@ -25,6 +25,26 @@ class SalaCineTest {
         assertEquals(10, sala.getCapacidadMaxima());
     }
     
+    //Probar el lanzamiento de excepcion por asiento inexistente
+    @Test
+    @DisplayName("Buscar asiento inexistente")
+    void buscarAsientoInexistente() {
+        assertThrows(NoSuchElementException.class, () -> {
+        sala.buscarAsiento("Z9");
+        });
+    }
+    
+    
+    //Calculo de ingreso total dado 2 asiento ocupados
+    @Test
+    @DisplayName("Calcular ingreso total")
+    void calcularIngresoTotal() {
+
+        sala.buscarAsiento("A1").ocupar(); // VIP = 8.5
+        sala.buscarAsiento("A2").ocupar(); // ESTANDAR = 5.0
+
+        assertEquals(13.5, sala.calcularIngresoTotal());
+        }
 
     
     
