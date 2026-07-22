@@ -11,7 +11,7 @@ public class ReservaServiceTest {
 
     @BeforeEach
     void setUp() {
-        salaCine = new SalaCine("SalaPrueba", 0);
+        salaCine = new SalaCine("SalaPrueba", 10);
 
         salaCine.agregarAsiento(new Asiento("A1", "ESTANDAR"));
         salaCine.agregarAsiento(new Asiento("A2", "ESTANDAR"));
