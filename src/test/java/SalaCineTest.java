@@ -46,6 +46,28 @@ class SalaCineTest {
         assertEquals(13.5, sala.calcularIngresoTotal());
         }
 
+    //Verificacion de la excepcion de que no se puedan repetir asientos en la misma sala
+    @Test
+    @DisplayName("No permite códigos repetidos")
+    void codigoRepetido() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            sala.agregarAsiento(new Asiento("A1","VIP"));
+        });
+    }
+    
+    // Probar en un nueva sala de cine "pequeña" que no se pueda sobrepasar la capacidad maxima
+    @Test
+    @DisplayName("No permite superar la capacidad")
+    void capacidadMaxima() {
+        SalaCine sala2 = new SalaCine("Pequeña",2);
+
+        sala2.agregarAsiento(new Asiento("A1","VIP"));
+        sala2.agregarAsiento(new Asiento("A2","VIP"));
+
+        assertThrows(IllegalStateException.class, () -> {
+            sala2.agregarAsiento(new Asiento("A3","VIP"));
+        });
+    }
     
     
 }
